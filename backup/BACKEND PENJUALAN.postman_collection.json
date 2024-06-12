@@ -1,0 +1,636 @@
+{
+	"info": {
+		"_postman_id": "b64b0593-a222-44d0-9b86-8f3f4454ae64",
+		"name": "BACKEND PENJUALAN",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "21673118",
+		"_collection_link": "https://universal-shadow-720175.postman.co/workspace/TiketBus~ebc8df7a-2260-4b1e-8987-3f60b1846892/collection/21673118-b64b0593-a222-44d0-9b86-8f3f4454ae64?action=share&source=collection_link&creator=21673118"
+	},
+	"item": [
+		{
+			"name": "PROVINSI",
+			"item": [
+				{
+					"name": "GET ALL DATA",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost/backend-penjualan/ProvinsiAPI.php"
+					},
+					"response": []
+				},
+				{
+					"name": "GET DATA BY ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost/backend-penjualan/ProvinsiAPI.php?=id_provinsi=1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"backend-penjualan",
+								"ProvinsiAPI.php"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": "id_provinsi=1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "POST DATA",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "nama_provinsi",
+									"value": "Sumatera Utara",
+									"type": "text"
+								}
+							]
+						},
+						"url": "http://localhost/backend-penjualan/ProvinsiAPI.php"
+					},
+					"response": []
+				},
+				{
+					"name": "EDIT DATA",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "id_provinsi",
+									"value": "2",
+									"type": "text"
+								},
+								{
+									"key": "nama_provinsi",
+									"value": "Sumatera",
+									"type": "text"
+								}
+							]
+						},
+						"url": "http://localhost/backend-penjualan/ProvinsiAPI.php"
+					},
+					"response": []
+				},
+				{
+					"name": "DELET DATA",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "id_provinsi",
+									"value": "2",
+									"type": "text"
+								}
+							]
+						},
+						"url": "http://localhost/backend-penjualan/ProvinsiAPI.php"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "PRODUK",
+			"item": [
+				{
+					"name": "GET ALL DATA",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost/backend-penjualan/ProdukAPI.php"
+					},
+					"response": []
+				},
+				{
+					"name": "GET DATA BY ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost/backend-penjualan/ProdukAPI.php?id_produk=1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"backend-penjualan",
+								"ProdukAPI.php"
+							],
+							"query": [
+								{
+									"key": "id_produk",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "POST DATA",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "nama_produk",
+									"value": "Kursi",
+									"type": "text"
+								},
+								{
+									"key": "merk_produk",
+									"value": "Panasonic",
+									"type": "text"
+								},
+								{
+									"key": "harga",
+									"value": "1000",
+									"type": "text"
+								}
+							]
+						},
+						"url": "http://localhost/backend-penjualan/ProdukAPI.php"
+					},
+					"response": []
+				},
+				{
+					"name": "EDIT DATA",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "id_produk",
+									"value": "2",
+									"type": "text"
+								},
+								{
+									"key": "nama_produk",
+									"value": "Kursi 2",
+									"type": "text"
+								},
+								{
+									"key": "merk_produk",
+									"value": "Panasonic 2",
+									"type": "text"
+								},
+								{
+									"key": "harga",
+									"value": "2000",
+									"type": "text"
+								}
+							]
+						},
+						"url": "http://localhost/backend-penjualan/ProdukAPI.php"
+					},
+					"response": []
+				},
+				{
+					"name": "DELET DATA",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "id_produk",
+									"value": "2",
+									"type": "text"
+								}
+							]
+						},
+						"url": "http://localhost/backend-penjualan/ProdukAPI.php"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "KABUPATEN",
+			"item": [
+				{
+					"name": "GET ALL DATA",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost/backend-penjualan/KabupatenAPI.php"
+					},
+					"response": []
+				},
+				{
+					"name": "GET DATA BY ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost/backend-penjualan/KabupatenAPI.php?id_kabupaten=4",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"backend-penjualan",
+								"KabupatenAPI.php"
+							],
+							"query": [
+								{
+									"key": "id_kabupaten",
+									"value": "4"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "POST DATA",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "nama_kabupaten",
+									"value": "Medan",
+									"type": "text"
+								},
+								{
+									"key": "id_provinsi",
+									"value": "3",
+									"type": "text"
+								}
+							]
+						},
+						"url": "http://localhost/backend-penjualan/KabupatenAPI.php"
+					},
+					"response": []
+				},
+				{
+					"name": "EDIT DATA",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "id_kabupaten",
+									"value": "4",
+									"type": "text"
+								},
+								{
+									"key": "nama_kabupaten",
+									"value": "Langkat",
+									"type": "text"
+								},
+								{
+									"key": "id_provinsi",
+									"value": "3",
+									"type": "text"
+								}
+							]
+						},
+						"url": "http://localhost/backend-penjualan/KabupatenAPI.php"
+					},
+					"response": []
+				},
+				{
+					"name": "DELET DATA",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "id_kabupaten",
+									"value": "4",
+									"type": "text"
+								}
+							]
+						},
+						"url": "http://localhost/backend-penjualan/KabupatenAPI.php"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "USER",
+			"item": [
+				{
+					"name": "GET ALL DATA",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost/backend-penjualan/UserAPI.php"
+					},
+					"response": []
+				},
+				{
+					"name": "GET DATA BY ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost/backend-penjualan/UserAPI.php?id_user=2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"backend-penjualan",
+								"UserAPI.php"
+							],
+							"query": [
+								{
+									"key": "id_user",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "POST DATA",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "username",
+									"value": "User",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "12345",
+									"type": "text"
+								},
+								{
+									"key": "nama_user",
+									"value": "Budiman",
+									"type": "text"
+								},
+								{
+									"key": "nomor_telp",
+									"value": "082165443678",
+									"type": "text"
+								},
+								{
+									"key": "id_provinsi",
+									"value": "3",
+									"type": "text"
+								},
+								{
+									"key": "id_kabupaten",
+									"value": "5",
+									"type": "text"
+								}
+							]
+						},
+						"url": "http://localhost/backend-penjualan/UserAPI.php"
+					},
+					"response": []
+				},
+				{
+					"name": "EDIT DATA",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "id_user",
+									"value": "2",
+									"type": "text"
+								},
+								{
+									"key": "username",
+									"value": "user",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "12345",
+									"type": "text"
+								},
+								{
+									"key": "nama_user",
+									"value": "Budiman 2",
+									"type": "text"
+								},
+								{
+									"key": "nomor_telp",
+									"value": "000000000000",
+									"type": "text"
+								},
+								{
+									"key": "id_provinsi",
+									"value": "3",
+									"type": "text"
+								},
+								{
+									"key": "id_kabupaten",
+									"value": "5",
+									"type": "text"
+								}
+							]
+						},
+						"url": "http://localhost/backend-penjualan/UserAPI.php"
+					},
+					"response": []
+				},
+				{
+					"name": "DELET DATA",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "id_user",
+									"value": "2",
+									"type": "text"
+								}
+							]
+						},
+						"url": "http://localhost/backend-penjualan/UserAPI.php"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "PEMBELIAN",
+			"item": [
+				{
+					"name": "GET ALL DATA",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost/backend-penjualan/PembelianAPI.php"
+					},
+					"response": []
+				},
+				{
+					"name": "GET DATA BY ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost/backend-penjualan/PembelianAPI.php?id_pembelian=1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"backend-penjualan",
+								"PembelianAPI.php"
+							],
+							"query": [
+								{
+									"key": "id_pembelian",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "POST DATA",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "id_produk",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "id_user",
+									"value": "3",
+									"type": "text"
+								},
+								{
+									"key": "tanggal_pembelian",
+									"value": "2024-05-09",
+									"type": "text"
+								},
+								{
+									"key": "jumlah",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "total_harga",
+									"value": "1000",
+									"type": "text"
+								}
+							]
+						},
+						"url": "http://localhost/backend-penjualan/PembelianAPI.php"
+					},
+					"response": []
+				},
+				{
+					"name": "EDIT DATA",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "id_pembelian",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "id_produk",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "id_user",
+									"value": "3",
+									"type": "text"
+								},
+								{
+									"key": "tanggal_pembelian",
+									"value": "2024-05-09 00:00:00",
+									"type": "text"
+								},
+								{
+									"key": "jumlah",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "total_harga",
+									"value": "2000.00",
+									"type": "text"
+								}
+							]
+						},
+						"url": "http://localhost/backend-penjualan/PembelianAPI.php"
+					},
+					"response": []
+				},
+				{
+					"name": "DELET DATA",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "id_pembelian",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": "http://localhost/backend-penjualan/PembelianAPI.php"
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
