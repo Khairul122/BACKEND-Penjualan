@@ -9,6 +9,7 @@ header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $input = json_decode(file_get_contents('php://input'), true);
     $idPengguna = $input['id_pengguna'];
+    $totalKeseluruhan = $input['total_keseluruhan'];
 
     // Fetch id_keranjang from tbl_penjualan based on id_pengguna
     $sqlFetch = "SELECT id_keranjang FROM tbl_penjualan WHERE id_pengguna = ?";
@@ -46,10 +47,26 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $stmtUpdate->close();
         }
 
-        if (count($errors) > 0) {
-            echo json_encode(["status" => "error", "message" => "Errors occurred while updating status", "errors" => $errors]);
+        // Update total in tbl_penjualan
+        $sqlUpdateTotal = "UPDATE tbl_penjualan SET total = ? WHERE id_pengguna = ?";
+        $stmtUpdateTotal = $conn->prepare($sqlUpdateTotal);
+
+        if ($stmtUpdateTotal === false) {
+            $errors[] = "Failed to prepare update total statement: " . $conn->error;
         } else {
-            echo json_encode(["status" => "success", "message" => "Status updated successfully"]);
+            $stmtUpdateTotal->bind_param('di', $totalKeseluruhan, $idPengguna);
+
+            if (!$stmtUpdateTotal->execute()) {
+                $errors[] = "Failed to update total for id_pengguna $idPengguna: " . $stmtUpdateTotal->error;
+            }
+
+            $stmtUpdateTotal->close();
+        }
+
+        if (count($errors) > 0) {
+            echo json_encode(["status" => "error", "message" => "Errors occurred while updating status and total", "errors" => $errors]);
+        } else {
+            echo json_encode(["status" => "success", "message" => "Status and total updated successfully"]);
         }
     } else {
         echo json_encode(["status" => "error", "message" => "No records found for id_pengguna $idPengguna"]);
