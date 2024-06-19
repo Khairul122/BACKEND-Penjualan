@@ -6,7 +6,6 @@ header("Access-Control-Allow-Origin: *");
 header("Access-Control-Allow-Methods: GET, POST, PUT, DELETE, OPTIONS");
 header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With");
 
-
 $method = $_SERVER['REQUEST_METHOD'];
 
 switch ($method) {
@@ -29,7 +28,7 @@ switch ($method) {
 
 function getKeranjang($conn) {
     $id_pengguna = isset($_GET['id_pengguna']) ? $_GET['id_pengguna'] : null;
-    
+
     $sql = "SELECT 
                 k.id_keranjang, 
                 k.id_pengguna, 
@@ -45,10 +44,11 @@ function getKeranjang($conn) {
                 k.status 
             FROM tbl_keranjang k
             JOIN tbl_pengguna p ON k.id_pengguna = p.id_pengguna
-            JOIN tbl_produk pr ON k.id_produk = pr.id_produk";
+            JOIN tbl_produk pr ON k.id_produk = pr.id_produk
+            WHERE k.status = 'pending'";
     
     if ($id_pengguna) {
-        $sql .= " WHERE k.id_pengguna = '$id_pengguna'";
+        $sql .= " AND k.id_pengguna = '$id_pengguna'";
     }
 
     if ($result = $conn->query($sql)) {
