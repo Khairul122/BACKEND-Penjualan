@@ -10,6 +10,7 @@ session_start();
 
 $method = $_SERVER['REQUEST_METHOD'];
 
+// Function to handle form data, including file uploads
 function handleFormData() {
     $data = json_decode(file_get_contents('php://input'), true);
     if (is_null($data)) {
@@ -35,6 +36,7 @@ function handleFormData() {
 
 switch ($method) {
     case 'GET':
+        // Handle GET request
         if (isset($_GET['id'])) {
             $id = intval($_GET['id']);
             $sql = "SELECT p.*, k.nama_kategori FROM tbl_produk p JOIN tbl_kategori k ON p.id_kategori = k.id_kategori WHERE p.id_produk = $id";
@@ -61,6 +63,7 @@ switch ($method) {
         break;
 
     case 'POST':
+        // Handle POST request
         $data = handleFormData();
         
         if (isset($data['nama_produk'], $data['merk_produk'], $data['gambar_produk'], $data['harga_produk'], $data['deskripsi_produk'], $data['stok_produk'], $data['id_kategori'])) {
@@ -87,6 +90,7 @@ switch ($method) {
         break;
 
     case 'PUT':
+        // Handle PUT request
         $data = handleFormData();
         
         if (isset($data['id_produk'], $data['nama_produk'], $data['merk_produk'], $data['harga_produk'], $data['deskripsi_produk'], $data['stok_produk'], $data['id_kategori'])) {
@@ -118,6 +122,7 @@ switch ($method) {
         break;
 
     case 'DELETE':
+        // Handle DELETE request
         if (isset($_GET['id'])) {
             $id = intval($_GET['id']);
             $sql = "DELETE FROM tbl_produk WHERE id_produk = $id";
@@ -134,6 +139,7 @@ switch ($method) {
         break;
 
     default:
+        // Handle invalid request method
         echo json_encode(array('status' => 'error', 'message' => 'Invalid request method'));
         break;
 }
