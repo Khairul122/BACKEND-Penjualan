@@ -14,6 +14,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $errors = [];
 
     foreach ($cartItems as $item) {
+        $idKeranjang = $item['id_keranjang']; // Include id_keranjang
         $idProduk = $item['id_produk'];
         $quantity = $item['quantity'];
         $total = $item['harga_produk'] * $quantity;
@@ -33,7 +34,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             continue;
         }
 
-        $sql = "INSERT INTO tbl_penjualan (id_pengguna, id_produk, quantity, total, kode_transaksi, created_at) VALUES (?, ?, ?, ?, ?, ?)";
+        $sql = "INSERT INTO tbl_penjualan (id_keranjang, id_pengguna, id_produk, quantity, total, kode_transaksi, created_at) VALUES (?, ?, ?, ?, ?, ?, ?)";
         $stmt = $conn->prepare($sql);
 
         if ($stmt === false) {
@@ -41,7 +42,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             continue;
         }
 
-        $stmt->bind_param('iiidss', $idPengguna, $idProduk, $quantity, $total, $kodeTransaksi, $createdAt);
+        $stmt->bind_param('iiiidss', $idKeranjang, $idPengguna, $idProduk, $quantity, $total, $kodeTransaksi, $createdAt);
         
         if (!$stmt->execute()) {
             $errors[] = "Failed to execute statement: " . $stmt->error;
