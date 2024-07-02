@@ -10,11 +10,12 @@ $id_pengguna = isset($_GET['id_pengguna']) ? intval($_GET['id_pengguna']) : 0;
 
 if ($id_pengguna > 0) {
     $query = "SELECT p.*, u.*, pr.*
-              FROM tbl_penjualan p
-              JOIN tbl_pengguna u ON p.id_pengguna = u.id_pengguna
-              JOIN tbl_produk pr ON p.id_produk = pr.id_produk
-              WHERE p.id_pengguna = ? AND p.status_pembelian = 'Sudah Dibayar'";
+    FROM tbl_penjualan p
+    JOIN tbl_pengguna u ON p.id_pengguna = u.id_pengguna
+    JOIN tbl_produk pr ON p.id_produk = pr.id_produk
+    WHERE p.id_pengguna = ?";
     $stmt = $conn->prepare($query);
+
     $stmt->bind_param("i", $id_pengguna);
     $stmt->execute();
     $result = $stmt->get_result();
@@ -30,4 +31,3 @@ if ($id_pengguna > 0) {
 }
 
 $conn->close();
-?>

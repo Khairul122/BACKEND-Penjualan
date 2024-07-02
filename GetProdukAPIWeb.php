@@ -32,7 +32,6 @@ switch ($method) {
                     p.gambar_produk, 
                     p.harga_produk, 
                     p.deskripsi_produk, 
-                    p.stok_produk, 
                     p.id_kategori
                   FROM tbl_penjualan b
                   JOIN tbl_pengguna u ON b.id_pengguna = u.id_pengguna
