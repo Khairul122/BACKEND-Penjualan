@@ -66,16 +66,15 @@ switch ($method) {
         // Handle POST request
         $data = handleFormData();
         
-        if (isset($data['nama_produk'], $data['merk_produk'], $data['gambar_produk'], $data['harga_produk'], $data['deskripsi_produk'], $data['stok_produk'], $data['id_kategori'])) {
+        if (isset($data['nama_produk'], $data['merk_produk'], $data['gambar_produk'], $data['harga_produk'], $data['deskripsi_produk'], $data['id_kategori'])) {
             $nama_produk = $data['nama_produk'];
             $merk_produk = $data['merk_produk'];
             $gambar_produk = $data['gambar_produk'];
             $harga_produk = $data['harga_produk'];
             $deskripsi_produk = $data['deskripsi_produk'];
-            $stok_produk = $data['stok_produk'];
             $id_kategori = $data['id_kategori'];
 
-            $sql = "INSERT INTO tbl_produk (nama_produk, merk_produk, gambar_produk, harga_produk, deskripsi_produk, stok_produk, id_kategori) VALUES ('$nama_produk', '$merk_produk', '$gambar_produk', '$harga_produk', '$deskripsi_produk', '$stok_produk', '$id_kategori')";
+            $sql = "INSERT INTO tbl_produk (nama_produk, merk_produk, gambar_produk, harga_produk, deskripsi_produk, id_kategori) VALUES ('$nama_produk', '$merk_produk', '$gambar_produk', '$harga_produk', '$deskripsi_produk', '$id_kategori')";
 
             if ($conn->query($sql) === TRUE) {
                 $response = array('status' => 'success', 'id_produk' => $conn->insert_id);
@@ -93,17 +92,16 @@ switch ($method) {
         // Handle PUT request
         $data = handleFormData();
         
-        if (isset($data['id_produk'], $data['nama_produk'], $data['merk_produk'], $data['harga_produk'], $data['deskripsi_produk'], $data['stok_produk'], $data['id_kategori'])) {
+        if (isset($data['id_produk'], $data['nama_produk'], $data['merk_produk'], $data['harga_produk'], $data['deskripsi_produk'], $data['id_kategori'])) {
             $id_produk = $data['id_produk'];
             $nama_produk = $data['nama_produk'];
             $merk_produk = $data['merk_produk'];
             $harga_produk = $data['harga_produk'];
             $deskripsi_produk = $data['deskripsi_produk'];
-            $stok_produk = $data['stok_produk'];
             $id_kategori = $data['id_kategori'];
             $gambar_produk = isset($data['gambar_produk']) ? $data['gambar_produk'] : null;
 
-            $sql = "UPDATE tbl_produk SET nama_produk='$nama_produk', merk_produk='$merk_produk', harga_produk='$harga_produk', deskripsi_produk='$deskripsi_produk', stok_produk='$stok_produk', id_kategori='$id_kategori'";
+            $sql = "UPDATE tbl_produk SET nama_produk='$nama_produk', merk_produk='$merk_produk', harga_produk='$harga_produk', deskripsi_produk='$deskripsi_produk', id_kategori='$id_kategori'";
             if ($gambar_produk) {
                 $sql .= ", gambar_produk='$gambar_produk'";
             }
